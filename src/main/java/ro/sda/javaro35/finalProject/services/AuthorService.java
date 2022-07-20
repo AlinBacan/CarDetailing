@@ -2,7 +2,7 @@ package ro.sda.javaro35.finalProject.services;
 
 import org.springframework.stereotype.Service;
 import ro.sda.javaro35.finalProject.dto.AuthorDto;
-import ro.sda.javaro35.finalProject.entities.Author;
+import ro.sda.javaro35.finalProject.entities.User;
 import ro.sda.javaro35.finalProject.exceptions.EntityNotFoundError;
 import ro.sda.javaro35.finalProject.repository.AuthorRepository;
 
@@ -20,18 +20,18 @@ public class AuthorService {
         this.authorMapper = authorMapper;
     }
 
-    public List<Author> findAll() {
+    public List<User> findAll() {
         return authorRepository.findAll();
     }
 
     public void createAuthor(AuthorDto form) {
-        Author author = authorMapper.convertToEntity(form);
-        authorRepository.save(author);
+        User user = authorMapper.convertToEntity(form);
+        authorRepository.save(user);
     }
 
     public AuthorDto findById(long id) {
-        Author entityAuthor = authorRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Book with %s does not exist", id)));
-        return authorMapper.convertToDto(entityAuthor);
+        User entityUser = authorRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Book with %s does not exist", id)));
+        return authorMapper.convertToDto(entityUser);
     }
 
     public void deleteById(long id) {

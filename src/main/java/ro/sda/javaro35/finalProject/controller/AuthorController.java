@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import ro.sda.javaro35.finalProject.dto.AuthorDto;
-import ro.sda.javaro35.finalProject.entities.Author;
+import ro.sda.javaro35.finalProject.entities.User;
 import ro.sda.javaro35.finalProject.services.AuthorService;
 
 import javax.validation.Valid;
@@ -24,8 +24,8 @@ public class AuthorController {
 
     @GetMapping("/authors")
     public String showAuthor(Model model) {
-        List<Author> authorList = authorService.findAll();
-        model.addAttribute("authors", authorList);
+        List<User> userList = authorService.findAll();
+        model.addAttribute("authors", userList);
         return "authors";
     }
 

@@ -3,11 +3,11 @@ package ro.sda.javaro35.finalProject.services;
 import org.springframework.stereotype.Service;
 
 import ro.sda.javaro35.finalProject.dto.AuthorDto;
-import ro.sda.javaro35.finalProject.entities.Author;
+import ro.sda.javaro35.finalProject.entities.User;
 import ro.sda.javaro35.finalProject.repository.AuthorRepository;
 
 @Service
-public class AuthorMapper implements Mapper<Author, AuthorDto> {
+public class AuthorMapper implements Mapper<User, AuthorDto> {
 
     private final AuthorRepository authorRepository;
 
@@ -16,7 +16,7 @@ public class AuthorMapper implements Mapper<Author, AuthorDto> {
     }
 
     @Override
-    public AuthorDto convertToDto(Author entity) {
+    public AuthorDto convertToDto(User entity) {
         AuthorDto authorForm = new AuthorDto();
         authorForm.setId(entity.getId());
         authorForm.setFirstName(entity.getFirstName());
@@ -25,17 +25,17 @@ public class AuthorMapper implements Mapper<Author, AuthorDto> {
     }
 
     @Override
-    public Author convertToEntity(AuthorDto dto) {
-        Author author;
+    public User convertToEntity(AuthorDto dto) {
+        User user;
         if (dto.getId() != null) { // din baza de date aducem o entitate sa lucram cu ea
-            author = authorRepository.findById(dto.getId()).orElse(new Author());
+            user = authorRepository.findById(dto.getId()).orElse(new User());
         } else { // altfel se va creea alta
-            author = new Author();
+            user = new User();
         }
-        author.setId(dto.getId());
-        author.setFirstName(dto.getFirstName());
-        author.setLastName(dto.getLastName());
+        user.setId(dto.getId());
+        user.setFirstName(dto.getFirstName());
+        user.setLastName(dto.getLastName());
 
-        return author;
+        return user;
     }
 }
