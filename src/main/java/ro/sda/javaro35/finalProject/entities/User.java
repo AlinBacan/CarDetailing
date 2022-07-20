@@ -8,10 +8,13 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class Author {
+public class User {
     @Id
     @GeneratedValue
-    private Long id;
+    private int userId;
     private String firstName;
     private String lastName;
+    private Role role;
+    private String email;
+    private String password;
 }
