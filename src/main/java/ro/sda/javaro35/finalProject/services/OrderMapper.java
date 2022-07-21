@@ -17,7 +17,7 @@ public class OrderMapper implements Mapper<Order, OrderDto>{
     @Override
     public OrderDto convertToDto(Order entity) {
         OrderDto result = new OrderDto();
-        result.setIdOrder(entity.getId());
+        result.setId(entity.getId());
         result.setOrderDate(entity.getOrderDate());
         result.setUserId(entity.getUser()!=null?entity.getUser().getId():null);
         return result;
@@ -27,10 +27,10 @@ public class OrderMapper implements Mapper<Order, OrderDto>{
     public Order convertToEntity(OrderDto dto) {
 
         Order result= new Order();
-        if (dto.getIdOrder()!=null){
-            result= orderRepository.findById(dto.getIdOrder()).orElse(result);
+        if (dto.getId()!=null){
+            result= orderRepository.findById(dto.getId()).orElse(result);
         }
-        result.setId(dto.getIdOrder());
+        result.setId(dto.getId());
         result.setOrderDate(dto.getOrderDate());
         if(dto.getUserId()!=null){
             User user=userRepository.findById(dto.getUserId()).orElse(null);

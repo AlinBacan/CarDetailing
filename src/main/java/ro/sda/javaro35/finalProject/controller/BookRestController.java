@@ -2,8 +2,8 @@ package ro.sda.javaro35.finalProject.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ro.sda.javaro35.finalProject.dto.BookDto;
-import ro.sda.javaro35.finalProject.services.BookService;
+import ro.sda.javaro35.finalProject.dto.CosmeticServiceDto;
+import ro.sda.javaro35.finalProject.services.CosmeticServiceService;
 
 import java.util.List;
 
@@ -12,15 +12,15 @@ import java.util.List;
 public class BookRestController {
 
     @Autowired
-    private BookService bookService;
+    private CosmeticServiceService cosmeticServiceService;
     @GetMapping
-    public List<BookDto> getAllBooks(){
-        return bookService.getAllBooks();
+    public List<CosmeticServiceDto> getAllBooks(){
+        return cosmeticServiceService.getAllCosmeticServices();
 
     }
 
     @PostMapping
-    public BookDto createBook(@RequestBody BookDto bookDto){
-        return bookService.createBook(bookDto);
+    public CosmeticServiceDto createBook(@RequestBody CosmeticServiceDto cosmeticServiceDto){
+        return cosmeticServiceService.createCosmeticService(cosmeticServiceDto);
     }
 }

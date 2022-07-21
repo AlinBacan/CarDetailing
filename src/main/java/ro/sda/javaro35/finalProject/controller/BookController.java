@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import ro.sda.javaro35.finalProject.dto.BookDto;
-import ro.sda.javaro35.finalProject.services.BookService;
+import ro.sda.javaro35.finalProject.dto.CosmeticServiceDto;
+import ro.sda.javaro35.finalProject.services.CosmeticServiceService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -17,40 +17,40 @@ import java.util.List;
 @Controller
 public class BookController {
     @Autowired
-    private BookService bookService;
+    private CosmeticServiceService cosmeticServiceService;
 
 
     @GetMapping("/books")
     public String showBooks(Model model) {
-        List<BookDto> books = bookService.getAllBooks();
+        List<CosmeticServiceDto> books = cosmeticServiceService.getAllCosmeticServices();
         model.addAttribute("books", books);
         return "books";
     }
 
     @GetMapping("/books/create")
     public String showForm(Model model) {
-        model.addAttribute("bookForm", new BookDto());
+        model.addAttribute("bookForm", new CosmeticServiceDto());
         return "book_create";
     }
 
     @PostMapping("/books/create")
-    public String createBook(@ModelAttribute("bookForm") @Valid BookDto form, Errors errors, Model model) {
+    public String createBook(@ModelAttribute("bookForm") @Valid CosmeticServiceDto form, Errors errors, Model model) {
         if (errors.hasErrors()) {
             return "book_create";
         }
-        bookService.createBook(form);
+        cosmeticServiceService.createCosmeticService(form);
         return "redirect:/books";
     }
 
     @GetMapping("/books/edit/{bookId}")
     public String showEditForm(@PathVariable("bookId") int id, Model model) {//Model e modelul din Spring MVC
-        BookDto bookForm = bookService.findById(id);
+        CosmeticServiceDto bookForm = cosmeticServiceService.findById(id);
         model.addAttribute("bookForm", bookForm);
         return "book_create";
     }
     @GetMapping("/books/delete/{bookId}")
     public String deleteBook(@PathVariable("bookId") int id, Model model) {//Model e modelul din Spring MVC
-       bookService.deleteById(id);
+       cosmeticServiceService.deleteById(id);
         return "redirect:/books";
     }
 }

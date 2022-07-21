@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 @Data
 public class OrderDto {
-    private Integer idOrder;
+    private Integer id;
     private Integer userId;
     private LocalDate orderDate;
 }

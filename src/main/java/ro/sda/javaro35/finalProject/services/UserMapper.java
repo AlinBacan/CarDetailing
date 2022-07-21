@@ -18,7 +18,7 @@ public class UserMapper implements Mapper<User, UserDto> {
     @Override
     public UserDto convertToDto(User entity) {
         UserDto userForm = new UserDto();
-        userForm.setUserId(entity.getId());
+        userForm.setId(entity.getId());
         userForm.setFirstName(entity.getFirstName());
         userForm.setLastName(entity.getLastName());
         return userForm;
@@ -27,12 +27,12 @@ public class UserMapper implements Mapper<User, UserDto> {
     @Override
     public User convertToEntity(UserDto dto) {
         User user;
-        if (dto.getUserId() != null) { // din baza de date aducem o entitate sa lucram cu ea
-            user = userRepository.findById(dto.getUserId()).orElse(new User());
+        if (dto.getId() != null) { // din baza de date aducem o entitate sa lucram cu ea
+            user = userRepository.findById(dto.getId()).orElse(new User());
         } else { // altfel se va creea alta
             user = new User();
         }
-        user.setId(dto.getUserId());
+        user.setId(dto.getId());
         user.setFirstName(dto.getFirstName());
         user.setLastName(dto.getLastName());
 

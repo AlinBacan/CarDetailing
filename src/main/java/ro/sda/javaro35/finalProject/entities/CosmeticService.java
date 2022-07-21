@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.List;
 
 @Entity
 @Data
@@ -16,8 +18,11 @@ public class CosmeticService {
 
     @Id
     @GeneratedValue
-    private Integer idCosmeticService;
-    private String ServiceName;
+    private Integer id;
+    private String serviceName;
     private Float price;
+
+    @ManyToMany
+    private List<OrderLine> orderLine;
 
 }

@@ -1,14 +1,12 @@
 package ro.sda.javaro35.finalProject.dto;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import ro.sda.javaro35.finalProject.entities.Role;
 
 @Data
 public class UserDto {
 
-    private Integer userId;
+    private Integer id;
 
     private String firstName;
 

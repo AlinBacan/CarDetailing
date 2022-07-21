@@ -4,10 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -16,15 +14,16 @@ import javax.persistence.ManyToMany;
 public class OrderLine {
     @Id
     @GeneratedValue
-    private Integer idOrderLine;
+    private Integer id;
 
     @ManyToMany
-    private CosmeticService cosmeticService;
-    private Long idPrice;
+    private List<CosmeticService> cosmeticService;
+    //private Integer idPrice;
     private Long quantity;
     private CarBodyStyle carBodyStyle;
 
-//    private Order order; - dupa update, creat de Anca
+    @ManyToOne
+    private Order order;
 
 
 }
