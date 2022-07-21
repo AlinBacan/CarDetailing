@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -24,7 +21,8 @@ public class OrderLine {
     private Long quantity;
     private CarBodyStyle carBodyStyle;
 
-//    private Order order; - dupa update, creat de Anca
+    @ManyToOne
+    private Order order;
 
 
 }

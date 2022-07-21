@@ -4,6 +4,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
+
 @Entity
 @Data
 @Table(name="orders")
@@ -14,5 +16,8 @@ public class Order {
     @ManyToOne(cascade = CascadeType.ALL)
     private User user;
     private LocalDate orderDate;
+
+    @OneToMany
+    private List<OrderLine> orderLine;
 
 }
