@@ -3,23 +3,19 @@ package ro.sda.javaro35.finalProject.entities;
 import lombok.Data;
 import lombok.Getter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
-@Getter
 public class User {
 
     @Id
     @GeneratedValue
-    private Long userId;
+    private Integer id;
 
     private String firstName;
 
-    @Column(name="alaBala")
     private String lastName;
 
     private Role role;
@@ -27,6 +23,10 @@ public class User {
     private String email;
 
     private String password;
+
+    @OneToMany
+    @JoinColumn(name="user_id")
+    private List<Order> ordersList;
 
 
 }

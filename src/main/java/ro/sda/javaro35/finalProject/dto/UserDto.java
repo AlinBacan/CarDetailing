@@ -8,7 +8,7 @@ import ro.sda.javaro35.finalProject.entities.Role;
 @Data
 public class UserDto {
 
-    private Long userId;
+    private Integer userId;
 
     private String firstName;
 

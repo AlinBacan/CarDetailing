@@ -31,12 +31,12 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public UserDto findById(long id) {
+    public UserDto findById(Integer id) {
         User entityUser = userRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Book with %s does not exist", id)));
         return userMapper.convertToDto(entityUser);
     }
 
-    public void deleteById(long id) {
+    public void deleteById(Integer id) {
         userRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Book with %s does not exist", id)));
         userRepository.deleteById(id);
     }

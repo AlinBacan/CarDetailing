@@ -45,14 +45,14 @@ public class UserController {
     }
 
     @GetMapping("/authors/edit/{authorId}")
-    public String showEditForm(@PathVariable("authorId") long id, Model model) {//Model e modelul din Spring MVC
+    public String showEditForm(@PathVariable("authorId") Integer id, Model model) {//Model e modelul din Spring MVC
         UserDto authorForm = userService.findById(id);
         model.addAttribute("authorForm", authorForm);
         return "author_create";
     }
 
     @GetMapping("/authors/delete/{authorId}")
-    public String deleteAuthor(@PathVariable("authorId") int id, Model model) {//Model e modelul din Spring MVC
+    public String deleteAuthor(@PathVariable("authorId") Integer id, Model model) {//Model e modelul din Spring MVC
         userService.deleteById(id);
         return "redirect:/authors";
     }
