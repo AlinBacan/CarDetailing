@@ -2,26 +2,26 @@ package ro.sda.javaro35.finalProject.services;
 
 import org.springframework.stereotype.Service;
 import ro.sda.javaro35.finalProject.dto.BookDto;
-import ro.sda.javaro35.finalProject.entities.Book;
+import ro.sda.javaro35.finalProject.entities.CosmeticService;
 
 @Service
-public class BookMapper implements Mapper<Book, BookDto> {
+public class BookMapper implements Mapper<CosmeticService, BookDto> {
     @Override
-    public BookDto convertToDto(Book entity) {
+    public BookDto convertToDto(CosmeticService entity) {
         BookDto result = new BookDto();
-        result.setAuthor(entity.getAuthor());
-        result.setId(entity.getId());
-        result.setTitle(entity.getTitle());
+        result.setAuthor(entity.getPrice ());
+        result.setId(entity.getIdCosmeticService ());
+        result.setTitle(entity.getServiceName ());
         return result;
 
     }
 
     @Override
-    public Book convertToEntity(BookDto dto) {
-        Book result = new Book();
-        result.setAuthor(dto.getAuthor());
-        result.setId(dto.getId());
-        result.setTitle(dto.getTitle());
+    public CosmeticService convertToEntity(BookDto dto) {
+        CosmeticService result = new CosmeticService ();
+        result.setPrice (dto.getAuthor());
+        result.setIdCosmeticService (dto.getId());
+        result.setServiceName (dto.getTitle());
         return result;
     }
 }

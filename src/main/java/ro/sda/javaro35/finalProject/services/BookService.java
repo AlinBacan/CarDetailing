@@ -3,7 +3,7 @@ package ro.sda.javaro35.finalProject.services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ro.sda.javaro35.finalProject.dto.BookDto;
-import ro.sda.javaro35.finalProject.entities.Book;
+import ro.sda.javaro35.finalProject.entities.CosmeticService;
 import ro.sda.javaro35.finalProject.exceptions.EntityNotFoundError;
 import ro.sda.javaro35.finalProject.repository.BookRepository;
 
@@ -23,14 +23,14 @@ public class BookService {
     }
 
     public BookDto createBook(BookDto form) {
-        Book book = bookMapper.convertToEntity(form);
-        book=bookRepository.save(book);
-        return bookMapper.convertToDto(book);
+        CosmeticService cosmeticService= bookMapper.convertToEntity(form);
+        cosmeticService=bookRepository.save(cosmeticService);
+        return bookMapper.convertToDto(cosmeticService);
     }
 
     public BookDto findById(long id) {
-        Book entityBook = bookRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Book with %s does not exist", id)));
-        return bookMapper.convertToDto(entityBook);
+        CosmeticService entityCosmeticService= bookRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Book with %s does not exist", id)));
+        return bookMapper.convertToDto(entityCosmeticService);
     }
 
     public void deleteById(long id) {

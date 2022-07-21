@@ -3,7 +3,6 @@ package ro.sda.javaro35.finalProject.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ro.sda.javaro35.finalProject.dto.BookDto;
-import ro.sda.javaro35.finalProject.entities.Book;
 import ro.sda.javaro35.finalProject.services.BookService;
 
 import java.util.List;
