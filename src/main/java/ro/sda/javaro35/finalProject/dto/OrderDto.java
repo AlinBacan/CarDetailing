@@ -1,0 +1,12 @@
+package ro.sda.javaro35.finalProject.dto;
+
+import lombok.Data;
+
+import java.time.LocalDate;
+
+@Data
+public class OrderDto {
+    private Integer idOrder;
+    private Integer userId;
+    private LocalDate orderDate;
+}
