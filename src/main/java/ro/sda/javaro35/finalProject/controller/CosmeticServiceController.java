@@ -20,37 +20,37 @@ public class CosmeticServiceController {
     private CosmeticServiceService cosmeticServiceService;
 
 
-    @GetMapping("/books")
+    @GetMapping("/service")
     public String showBooks(Model model) {
-        List<CosmeticServiceDto> books = cosmeticServiceService.getAllCosmeticServices();
-        model.addAttribute("books", books);
-        return "books";
+        List<CosmeticServiceDto> services = cosmeticServiceService.getAllCosmeticServices();
+        model.addAttribute("services", services);
+        return "services";
     }
 
-    @GetMapping("/books/create")
+    @GetMapping("/service/create")
     public String showForm(Model model) {
-        model.addAttribute("bookForm", new CosmeticServiceDto());
-        return "book_create";
+        model.addAttribute("form", new CosmeticServiceDto());
+        return "service_create";
     }
 
-    @PostMapping("/books/create")
-    public String createBook(@ModelAttribute("bookForm") @Valid CosmeticServiceDto form, Errors errors, Model model) {
+    @PostMapping("/service/create")
+    public String createBook(@ModelAttribute("form") @Valid CosmeticServiceDto form, Errors errors, Model model) {
         if (errors.hasErrors()) {
-            return "book_create";
+            return "service_create";
         }
         cosmeticServiceService.createCosmeticService(form);
-        return "redirect:/books";
+        return "redirect:/service";
     }
 
-    @GetMapping("/books/edit/{bookId}")
-    public String showEditForm(@PathVariable("bookId") int id, Model model) {//Model e modelul din Spring MVC
-        CosmeticServiceDto bookForm = cosmeticServiceService.findById(id);
-        model.addAttribute("bookForm", bookForm);
-        return "book_create";
+    @GetMapping("/service/edit/{bookId}")
+    public String showEditForm(@PathVariable("id") int id, Model model) {//Model e modelul din Spring MVC
+        CosmeticServiceDto form = cosmeticServiceService.findById(id);
+        model.addAttribute("Form", form);
+        return "service_create";
     }
-    @GetMapping("/books/delete/{bookId}")
-    public String deleteBook(@PathVariable("bookId") int id, Model model) {//Model e modelul din Spring MVC
+    @GetMapping("/service/delete/{id}")
+    public String deleteBook(@PathVariable("id") int id, Model model) {//Model e modelul din Spring MVC
        cosmeticServiceService.deleteById(id);
-        return "redirect:/books";
+        return "redirect:/service";
     }
 }

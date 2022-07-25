@@ -8,19 +8,19 @@ import ro.sda.javaro35.finalProject.services.CosmeticServiceService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/book")
+@RequestMapping("/api/service")
 public class CosmeticServiceRestController {
 
     @Autowired
     private CosmeticServiceService cosmeticServiceService;
     @GetMapping
-    public List<CosmeticServiceDto> getAllBooks(){
+    public List<CosmeticServiceDto> getAllCosmeticServices(){
         return cosmeticServiceService.getAllCosmeticServices();
 
     }
 
     @PostMapping
-    public CosmeticServiceDto createBook(@RequestBody CosmeticServiceDto cosmeticServiceDto){
+    public CosmeticServiceDto createCosmeticService(@RequestBody CosmeticServiceDto cosmeticServiceDto){
         return cosmeticServiceService.createCosmeticService(cosmeticServiceDto);
     }
 }
