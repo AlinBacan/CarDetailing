@@ -19,7 +19,7 @@ public class CosmeticServiceMapper implements Mapper<CosmeticService, CosmeticSe
     @Override
     public CosmeticService convertToEntity(CosmeticServiceDto dto) {
         CosmeticService result = new CosmeticService ();
-        result.setPrice (dto.getId().floatValue());
+        result.setPrice (dto.getPrice());
         result.setId(dto.getId());
         result.setServiceName (dto.getServiceName());
         return result;

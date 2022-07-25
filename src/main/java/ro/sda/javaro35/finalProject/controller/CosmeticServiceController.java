@@ -21,7 +21,7 @@ public class CosmeticServiceController {
 
 
     @GetMapping("/service")
-    public String showBooks(Model model) {
+    public String showCosmeticService(Model model) {
         List<CosmeticServiceDto> services = cosmeticServiceService.getAllCosmeticServices();
         model.addAttribute("services", services);
         return "services";
@@ -30,26 +30,26 @@ public class CosmeticServiceController {
     @GetMapping("/service/create")
     public String showForm(Model model) {
         model.addAttribute("form", new CosmeticServiceDto());
-        return "service_create";
+        return "service-add";
     }
 
     @PostMapping("/service/create")
-    public String createBook(@ModelAttribute("form") @Valid CosmeticServiceDto form, Errors errors, Model model) {
+    public String createCosmeticService(@ModelAttribute("form") @Valid CosmeticServiceDto form, Errors errors, Model model) {
         if (errors.hasErrors()) {
-            return "service_create";
+            return "service-add";
         }
         cosmeticServiceService.createCosmeticService(form);
         return "redirect:/service";
     }
 
-    @GetMapping("/service/edit/{bookId}")
+    @GetMapping("/service/edit/{id}")
     public String showEditForm(@PathVariable("id") int id, Model model) {//Model e modelul din Spring MVC
         CosmeticServiceDto form = cosmeticServiceService.findById(id);
         model.addAttribute("Form", form);
         return "service_create";
     }
     @GetMapping("/service/delete/{id}")
-    public String deleteBook(@PathVariable("id") int id, Model model) {//Model e modelul din Spring MVC
+    public String deleteCosmeticService(@PathVariable("id") int id, Model model) {//Model e modelul din Spring MVC
        cosmeticServiceService.deleteById(id);
         return "redirect:/service";
     }
