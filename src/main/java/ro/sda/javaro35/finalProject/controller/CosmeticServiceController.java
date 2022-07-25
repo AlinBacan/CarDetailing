@@ -15,7 +15,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-public class BookController {
+public class CosmeticServiceController {
     @Autowired
     private CosmeticServiceService cosmeticServiceService;
 

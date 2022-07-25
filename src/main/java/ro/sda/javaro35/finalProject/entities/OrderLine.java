@@ -16,8 +16,8 @@ public class OrderLine {
     @GeneratedValue
     private Integer id;
 
-    @ManyToMany
-    private List<CosmeticService> cosmeticService;
+    @ManyToOne
+    private CosmeticService cosmeticService;
     //private Integer idPrice;
     private Long quantity;
     private CarBodyStyle carBodyStyle;

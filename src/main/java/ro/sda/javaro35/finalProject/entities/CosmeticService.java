@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -22,7 +19,7 @@ public class CosmeticService {
     private String serviceName;
     private Float price;
 
-    @ManyToMany
+    @OneToMany(mappedBy = "cosmeticService")
     private List<OrderLine> orderLine;
 
 }

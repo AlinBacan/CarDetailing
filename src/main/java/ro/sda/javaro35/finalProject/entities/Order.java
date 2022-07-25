@@ -17,7 +17,7 @@ public class Order {
     private User user;
     private LocalDate orderDate;
 
-    @OneToMany
+    @OneToMany(mappedBy = "order")
     private List<OrderLine> orderLine;
 
 }
