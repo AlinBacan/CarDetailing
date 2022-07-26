@@ -46,7 +46,7 @@ public class CosmeticServiceController {
     public String showEditForm(@PathVariable("id") int id, Model model) {//Model e modelul din Spring MVC
         CosmeticServiceDto form = cosmeticServiceService.findById(id);
         model.addAttribute("Form", form);
-        return "service_create";
+        return "service-edit";
     }
     @GetMapping("/service/delete/{id}")
     public String deleteCosmeticService(@PathVariable("id") int id, Model model) {//Model e modelul din Spring MVC
