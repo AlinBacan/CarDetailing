@@ -22,39 +22,39 @@ public class UserController {
 
     private UserService userService;
 
-    @GetMapping("/authors")
-    public String showAuthor(Model model) {
+    @GetMapping("/users")
+    public String showUsers(Model model) {
         List<User> userList = userService.findAll();
-        model.addAttribute("authors", userList);
-        return "authors";
+        model.addAttribute("users", userList);
+        return "users";
     }
 
-    @GetMapping("/authors/create")
+    @GetMapping("/user/create")
     public String showForm(Model model) {
-        model.addAttribute("authorForm", new UserDto());
-        return "author_create";
+        model.addAttribute("usersForm", new UserDto());
+        return "user_create";
     }
 
-    @PostMapping("/authors/create")
-    public String createAuthor(@ModelAttribute("authorForm") @Valid UserDto form, Errors errors, Model model) {
+    @PostMapping("/user/create")
+    public String createUser(@ModelAttribute("usersForm") @Valid UserDto form, Errors errors, Model model) {
         if (errors.hasErrors()) {
-            return "author_create";
+            return "user_create";
         }
-        userService.createAuthor(form);
-        return "redirect:/authors";
+        userService.createUser(form);
+        return "redirect:/users";
     }
 
-    @GetMapping("/authors/edit/{authorId}")
-    public String showEditForm(@PathVariable("authorId") Integer id, Model model) {//Model e modelul din Spring MVC
-        UserDto authorForm = userService.findById(id);
-        model.addAttribute("authorForm", authorForm);
-        return "author_create";
+    @GetMapping("/users/edit/{id}")
+    public String showEditForm(@PathVariable("id") Integer id, Model model) {//Model e modelul din Spring MVC
+        UserDto userForm = userService.findById(id);
+        model.addAttribute("userForm", userForm);
+        return "user_create";
     }
 
-    @GetMapping("/authors/delete/{authorId}")
-    public String deleteAuthor(@PathVariable("authorId") Integer id, Model model) {//Model e modelul din Spring MVC
+    @GetMapping("/users/delete/{id}")
+    public String deleteUser(@PathVariable("id") Integer id, Model model) {//Model e modelul din Spring MVC
         userService.deleteById(id);
-        return "redirect:/authors";
+        return "redirect:/users";
     }
 
 
