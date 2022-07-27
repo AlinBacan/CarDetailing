@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ro.sda.javaro35.finalProject.dto.CosmeticServiceDto;
 import ro.sda.javaro35.finalProject.entities.CosmeticService;
 import ro.sda.javaro35.finalProject.exceptions.EntityNotFoundError;
+import ro.sda.javaro35.finalProject.mapper.CosmeticServiceMapper;
 import ro.sda.javaro35.finalProject.repository.CosmeticServiceRepository;
 
 import java.util.List;

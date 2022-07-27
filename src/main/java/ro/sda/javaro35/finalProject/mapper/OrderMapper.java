@@ -1,16 +1,17 @@
-package ro.sda.javaro35.finalProject.services;
+package ro.sda.javaro35.finalProject.mapper;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ro.sda.javaro35.finalProject.dto.OrderDto;
 import ro.sda.javaro35.finalProject.entities.Order;
 import ro.sda.javaro35.finalProject.entities.User;
+import ro.sda.javaro35.finalProject.mapper.Mapper;
 import ro.sda.javaro35.finalProject.repository.OrderRepository;
 import ro.sda.javaro35.finalProject.repository.UserRepository;
 
 @Service
 @AllArgsConstructor
-public class OrderMapper implements Mapper<Order, OrderDto>{
+public class OrderMapper implements Mapper<Order, OrderDto> {
 
     private OrderRepository orderRepository;
     private UserRepository userRepository;
