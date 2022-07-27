@@ -45,8 +45,6 @@ public class UserController {
     }
 
 
-
-
     @GetMapping("/users/edit/{id}")
     public String showEditForm(@PathVariable("id") Integer id, Model model) {//Model e modelul din Spring MVC
         UserDto userForm = userService.findById(id);

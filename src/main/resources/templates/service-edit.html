@@ -11,7 +11,7 @@
 
 <body>
 
-<!--<div th:replace="fragments/nav-bar-admin :: nav-bar-admin"/> -->
+<div th:replace="fragments/nav-bar-admin :: nav-bar-admin"/>
 
     <div class="d-flex flex-column justify-content-center align-items-center m-5 p-5 mw-75">
         <h1>Edit service</h1>
@@ -23,7 +23,7 @@
                         <label for="name" class="input-group-text">Name</label>
                     </div>
                     <input id="name" th:field="*{serviceName}" type="text">
-                    <input id="ïd" th:field="*{id}" type="text" hidden/>
+                    <input id="id" th:field="*{id}" type="text" hidden/>
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">

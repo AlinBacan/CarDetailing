@@ -14,18 +14,30 @@
     <div class="d-flex flex-column justify-content-center align-items-center m-5 p-5 mw-75">
         <h1>Create new service</h1>
         <div>
-            <form method="post" th:action="@{/service/create}" th:object="${form}">
+            <form method="post" th:action="@{/user/create}" th:object="${usersForm}">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <label for="name" class="input-group-text">Name</label>
+                        <label for="firstName" class="input-group-text">First Name</label>
                     </div>
-                    <input id="name" th:field="*{serviceName}" type="text">
+                    <input id="firstName" th:field="*{firstName}" type="text">
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <label for="price" class="input-group-text">Price</label>
+                        <label for="lastName" class="input-group-text">Last Name</label>
                     </div>
-                    <input id="price" th:field="*{price}" type="number">
+                    <input id="lastName" th:field="*{lastName}" type="text">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label for="email" class="input-group-text">Email</label>
+                    </div>
+                    <input id="email" th:field="*{email}" type="text">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label for="password" class="input-group-text">Password</label>
+                    </div>
+                    <input id="password" th:field="*{password}" type="text">
                 </div>
 
                 <div class="m-3 d-flex justify-content-center">
