@@ -21,6 +21,7 @@ public class UserMapper implements Mapper<User, UserDto> {
         userForm.setId(entity.getId());
         userForm.setFirstName(entity.getFirstName());
         userForm.setLastName(entity.getLastName());
+        //userForm.setRole(entity.getRole());
         return userForm;
     }
 
@@ -35,6 +36,9 @@ public class UserMapper implements Mapper<User, UserDto> {
         user.setId(dto.getId());
         user.setFirstName(dto.getFirstName());
         user.setLastName(dto.getLastName());
+        user.setEmail(dto.getEmail());
+        user.setPassword(dto.getPassword());
+        //user.setRole(dto.getRole());
 
         return user;
     }

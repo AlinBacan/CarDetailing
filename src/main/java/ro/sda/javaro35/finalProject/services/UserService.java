@@ -40,12 +40,12 @@ public class UserService implements UserDetailsService {
     }
 
     public UserDto findById(Integer id) {
-        User entityUser = userRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Book with %s does not exist", id)));
+        User entityUser = userRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("User with %s does not exist", id)));
         return userMapper.convertToDto(entityUser);
     }
 
     public void deleteById(Integer id) {
-        userRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Book with %s does not exist", id)));
+        userRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("User with %s does not exist", id)));
         userRepository.deleteById(id);
     }
 

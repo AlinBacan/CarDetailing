@@ -30,12 +30,12 @@ public class CosmeticServiceService {
     }
 
     public CosmeticServiceDto findById(Integer id) {
-        CosmeticService entityCosmeticService= cosmeticServiceRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Book with %s does not exist", id)));
+        CosmeticService entityCosmeticService= cosmeticServiceRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Cosmetic service with %s does not exist", id)));
         return cosmeticServiceMapper.convertToDto(entityCosmeticService);
     }
 
     public void deleteById(Integer id) {
-        cosmeticServiceRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Book with %s does not exist", id)));
+        cosmeticServiceRepository.findById(id).orElseThrow(() -> new EntityNotFoundError(String.format("Cosmetic service with %s does not exist", id)));
         cosmeticServiceRepository.deleteById(id);
     }
 }
