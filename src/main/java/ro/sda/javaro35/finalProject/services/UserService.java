@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import ro.sda.javaro35.finalProject.dto.UserDto;
+import ro.sda.javaro35.finalProject.entities.Role;
 import ro.sda.javaro35.finalProject.entities.User;
 import ro.sda.javaro35.finalProject.exceptions.EntityNotFoundError;
 import ro.sda.javaro35.finalProject.mapper.UserMapper;
@@ -35,6 +36,7 @@ public class UserService implements UserDetailsService {
 
     public void createUser(UserDto form) {
         User user = userMapper.convertToEntity(form);
+        user.setRole(Role.USER);
         user.setPassword(passwordEncoder.encode(form.getPassword()));
         userRepository.save(user);
     }

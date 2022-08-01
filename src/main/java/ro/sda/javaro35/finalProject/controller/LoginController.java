@@ -26,6 +26,7 @@ public class LoginController {
         return "login";
     }
 
+    @GetMapping("/register")
     public String showRegisterPage(Model model){
         User newUser = new User();
         model.addAttribute("user",newUser);

@@ -31,6 +31,7 @@ public class SecurtityConfigUpdate {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests((authz) -> authz.antMatchers(HttpMethod.GET, "/api/cars").hasAnyRole("ADMIN", "CARS")
 //                .antMatchers(HttpMethod.POST, "/api/author").authenticated()
+                        .antMatchers(("/users**")).hasRole("ADMIN")
 //                .antMatchers("/api/users/**").hasAuthority("ROLE_USER_ADMIN")
                 .anyRequest().permitAll() )
                 .formLogin().and()
