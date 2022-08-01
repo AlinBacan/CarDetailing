@@ -53,7 +53,7 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(username);
         if (user==null){
-            throw new UsernameNotFoundException("Ivalid username or password");
+            throw new UsernameNotFoundException("Invalid username or password");
         }
         List roles = new ArrayList();
         String role= "ROLE_" +user.getRole();
