@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="utf-8"/>
@@ -21,7 +21,7 @@
 
     <h1>Services list</h1>
 
-    <a th:href="@{/service/create}" class="btn btn-dark m-5">Create service</a>
+    <a sec:authorize="hasRole('ADMIN')" th:href="@{/service/create}" class="btn btn-dark m-5">Create service</a>
 
     <table class="table table-hover table-border ">
         <!-- table header -->
@@ -43,8 +43,8 @@
             <td th:text="${item.price}" class="text-center">2</td>
 
             <!-- action buttons -->
-            <td><a th:href="@{/service/edit/{id}(id = ${item.id})}" class="btn btn-primary">Edit</a></td>
-            <td><a th:href="@{/service/delete/{id}/(id = ${item.id})}" class="btn btn-secondary">Delete</a></td>
+            <td sec:authorize="hasRole('ADMIN')"><a th:href="@{/service/edit/{id}(id = ${item.id})}" class="btn btn-primary">Edit</a></td>
+            <td sec:authorize="hasRole('ADMIN')"><a th:href="@{/service/delete/{id}/(id = ${item.id})}" class="btn btn-secondary">Delete</a></td>
         </tr>
         </tbody>
     </table>

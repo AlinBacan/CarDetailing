@@ -16,7 +16,7 @@
 
     <h1>Users list</h1>
 
-    <a th:href="@{/user/create}">Create user</a>
+    <a th:href="@{/users/create}">Create user</a>
 
     <table>
         <!-- table header -->
@@ -44,8 +44,8 @@
             <!-- action buttons -->
             <td>
                 <div class="actions">
-                    <a th:href="@{/users/{id}/edit(id = ${user.id})}">Edit</a>
-                    <a th:href="@{/users/{id}/delete(id = ${user.id})}">Delete</a>
+                    <a th:href="@{/users/edit/{id}(id = ${user.id})}">Edit</a>
+                    <a th:href="@{/users/delete/{id}(id = ${user.id})}">Delete</a>
                 </div>
             </td>
         </tr>

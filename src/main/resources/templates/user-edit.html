@@ -17,11 +17,12 @@
 <h1>Edit user</h1>
 
     <div>
-        <form method="post" th:action="@{admin/user/create}" th:object="${usersForm}">
+        <form method="post" th:action="@{/users/create}" th:object="${userForm}">
 
             <div>
                 <label for="firstName">First Name</label>
                 <input id="firstName" th:field="*{firstName}" type="text">
+                <input id="id" th:field="*{id}" type="text" hidden>
             </div>
 
             <div>
@@ -55,7 +56,7 @@
             </div>-->
 
             <div>
-                <a th:href="@{/admin/users}">
+                <a th:href="@{/users}">
                     <button class="btn btn-secondary" id="cancel" name="cancel" type="button">Cancel</button>
                 </a>
                 <button class="btn btn-primary" id="save" name="save" type="submit">Update</button>

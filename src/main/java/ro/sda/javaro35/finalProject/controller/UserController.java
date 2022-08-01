@@ -47,7 +47,7 @@ public class UserController {
     public String showEditForm(@PathVariable("id") Integer id, Model model) {//Model e modelul din Spring MVC
         UserDto userForm = userService.findById(id);
         model.addAttribute("userForm", userForm);
-        return "user_edit";// return "redirect:/users";
+        return "user-edit";// return "redirect:/users";
     }
 
     @GetMapping("/delete/{id}")
