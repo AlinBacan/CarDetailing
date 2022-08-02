@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import ro.sda.javaro35.finalProject.dto.CosmeticServiceDto;
 import ro.sda.javaro35.finalProject.services.CosmeticServiceService;
 
@@ -15,25 +12,26 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
+@RequestMapping("/service")
 public class CosmeticServiceController {
     @Autowired
     private CosmeticServiceService cosmeticServiceService;
 
 
-    @GetMapping("/service")
+    @GetMapping("")
     public String showCosmeticService(Model model) {
         List<CosmeticServiceDto> services = cosmeticServiceService.getAllCosmeticServices();
         model.addAttribute("services", services);
         return "services";
     }
 
-    @GetMapping("/service/create")
+    @GetMapping("/create")
     public String showForm(Model model) {
         model.addAttribute("form", new CosmeticServiceDto());
         return "service-add";
     }
 
-    @PostMapping("/service/create")
+    @PostMapping("/create")
     public String createCosmeticService(@ModelAttribute("form") @Valid CosmeticServiceDto form, Errors errors, Model model) {
         if (errors.hasErrors()) {
             return "service-add";
@@ -42,13 +40,13 @@ public class CosmeticServiceController {
         return "redirect:/service";
     }
 
-    @GetMapping("/service/edit/{id}")
+    @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable("id") int id, Model model) {//Model e modelul din Spring MVC
         CosmeticServiceDto form = cosmeticServiceService.findById(id);
         model.addAttribute("Form", form);
         return "service-edit";
     }
-    @GetMapping("/service/delete/{id}")
+    @GetMapping("/delete/{id}")
     public String deleteCosmeticService(@PathVariable("id") int id, Model model) {//Model e modelul din Spring MVC
        cosmeticServiceService.deleteById(id);
         return "redirect:/service";

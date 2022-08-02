@@ -22,21 +22,18 @@ import ro.sda.javaro35.finalProject.services.UserService;
 public class SecurtityConfigUpdate {
 
 
-
     UserService userService;
 
     PasswordEncoder passwordEncoder;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests((authz) -> authz.antMatchers(HttpMethod.GET, "/api/cars").hasAnyRole("ADMIN", "CARS")
-//                .antMatchers(HttpMethod.POST, "/api/author").authenticated()
+        http.authorizeRequests((authz) -> authz.antMatchers(HttpMethod.GET, "/api/service/**").authenticated()
                         .antMatchers(("/users**")).hasRole("ADMIN")
-//                .antMatchers("/api/users/**").hasAuthority("ROLE_USER_ADMIN")
-                .anyRequest().permitAll() )
-                .formLogin().and()
-                .httpBasic().and()
-                .logout()
+                        .anyRequest().permitAll())
+                .formLogin().loginPage("/login").and()
+//                .httpBasic().and()
+                .logout().invalidateHttpSession(true).deleteCookies("JSESSIONID")
                 .and()
                 .csrf().ignoringAntMatchers("/api/**")
                 .and()
@@ -47,7 +44,7 @@ public class SecurtityConfigUpdate {
 
 
     @Bean
-    public DaoAuthenticationProvider authenticationProvider(){
+    public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
         authenticationProvider.setUserDetailsService(userService);
         authenticationProvider.setPasswordEncoder(passwordEncoder);
