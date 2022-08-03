@@ -29,11 +29,11 @@ public class SecurtityConfigUpdate {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests((authz) -> authz.antMatchers(HttpMethod.GET, "/api/service/**").authenticated()
-                        .antMatchers(("/users**")).hasRole("ADMIN")
+                        .antMatchers(("/users/**")).hasRole("ADMIN")
                         .anyRequest().permitAll())
-                .formLogin().loginPage("/login").and()
-//                .httpBasic().and()
-                .logout().invalidateHttpSession(true).deleteCookies("JSESSIONID")
+                .formLogin().and()
+                .httpBasic().and()
+                .logout().clearAuthentication(true).invalidateHttpSession(true).deleteCookies("JSESSIONID")
                 .and()
                 .csrf().ignoringAntMatchers("/api/**")
                 .and()
