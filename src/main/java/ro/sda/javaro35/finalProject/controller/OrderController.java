@@ -3,6 +3,8 @@ package ro.sda.javaro35.finalProject.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +32,7 @@ public class OrderController {
     private final OrderLineService orderLineService;
     private final CosmeticServiceService cosmeticServiceService;
 
+
     public OrderController(OrderService orderService, OrderLineService orderLineService, CosmeticServiceService cosmeticServiceService) {
         this.orderService = orderService;
         this.orderLineService = orderLineService;
@@ -37,12 +40,14 @@ public class OrderController {
     }
 
     @GetMapping("")
-    public String showOrder(Model model) {
+    public String showOrders(Model model) {
         List<OrderDto> orderDtos = orderService.getAllOrders();
         model.addAttribute("orders", orderDtos);
         return "orders";
         // vezi .html si daca mai trebuie alte pagini
     }
+
+
 
 @PostMapping("/order/add{id}")
     public String add(@PathVariable("id") Integer id, Model model){
