@@ -7,12 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 import ro.sda.javaro35.finalProject.dto.CosmeticServiceDto;
-import ro.sda.javaro35.finalProject.entities.CosmeticService;
-import ro.sda.javaro35.finalProject.mapper.CosmeticServiceMapper;
 import ro.sda.javaro35.finalProject.services.CosmeticServiceService;
-import ro.sda.javaro35.finalProject.services.OrderService;
 import ro.sda.javaro35.finalProject.services.ShopingCartService;
 
 @Controller
@@ -22,10 +18,6 @@ public class ShoppingCartController {
     private CosmeticServiceService cosmeticServiceService;
     @Autowired
     private ShopingCartService shopingCartService;
-
-    @Autowired
-    private CosmeticServiceMapper cosmeticServiceMapper;
-
 
     @GetMapping("/shoppingCart")
     public String shoppingCart(Model model) {
