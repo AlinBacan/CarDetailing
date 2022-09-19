@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import ro.sda.javaro35.finalProject.dto.CosmeticServiceDto;
+import ro.sda.javaro35.finalProject.dto.OrderLineDto;
 import ro.sda.javaro35.finalProject.services.CosmeticServiceService;
 
 import javax.validation.Valid;
@@ -50,5 +51,17 @@ public class CosmeticServiceController {
     public String deleteCosmeticService(@PathVariable("id") int id, Model model) {//Model e modelul din Spring MVC
        cosmeticServiceService.deleteById(id);
         return "redirect:/service";
+    }
+
+    @GetMapping("/menu/")
+    public String showMenuPage(Model model) {
+        // return a html page with products
+        // add list of products
+        List<CosmeticServiceDto> services = cosmeticServiceService.getAllCosmeticServices();
+        model.addAttribute("services", services);
+        model.addAttribute("orderLine", new OrderLineDto());
+
+        // resolved by the view resolver
+        return "menu";
     }
 }

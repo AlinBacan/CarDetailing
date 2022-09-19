@@ -61,7 +61,7 @@ public class OrderController {
     }
 
 
-    @PostMapping("/order/add{id}")
+    @PostMapping("/add{id}")
     public String add(@PathVariable("id") Integer id, Model model) {
         // check if order exists, if not create one
         Order order = (Order) model.getAttribute("id");
@@ -72,7 +72,7 @@ public class OrderController {
         return "redirect:/order";
     }
 
-    @PostMapping("/order/edit{id}")
+    @PostMapping("/edit{id}")
     public String update(@PathVariable("id") Integer id, Model model) {
         // check if order exists, if not create one
         Order order = (Order) model.getAttribute("id");

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="utf-8" />
@@ -13,6 +13,9 @@
 
     <div class="d-flex flex-column justify-content-center align-items-center m-5 p-5 mw-75">
         <h1>Create new user</h1>
+        <h3 class="jumbotron">
+            <span sec:authentication="name"></span>'s Users List
+        </h3>
         <div>
             <form method="post" th:action="@{/users/create}" th:object="${usersForm}">
                 <div class="input-group mb-3">
@@ -41,7 +44,7 @@
                 </div>
 
                 <div class="m-3 d-flex justify-content-center">
-                    <a th:href="@{/admin/services}">
+                    <a th:href="@{/admin/service}">
                         <button class="btn btn-secondary m-2" id="cancel" name="cancel" type="button">Cancel</button>
                     </a>
                     <button class="btn btn-primary m-2" id="save" name="save" type="submit">Create</button>

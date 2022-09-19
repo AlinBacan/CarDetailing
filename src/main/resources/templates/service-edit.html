@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="utf-8" />
@@ -15,6 +15,9 @@
 
     <div class="d-flex flex-column justify-content-center align-items-center m-5 p-5 mw-75">
         <h1>Edit service</h1>
+        <h3 class="jumbotron">
+            <span sec:authentication="name"></span>'s Services List
+        </h3>
 
         <div>
             <form method="post" th:action="@{/service/create}" th:object="${Form}">

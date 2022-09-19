@@ -20,6 +20,9 @@
 <div class="d-flex flex-column justify-content-center align-items-center p-5" style="max-width: 1200px; margin: auto">
 
     <h1>Services list</h1>
+    <h3 class="jumbotron">
+        <span sec:authentication="name"></span>'s Services List
+    </h3>
 
     <a sec:authorize="hasRole('ADMIN')" th:href="@{/service/create}" class="btn btn-dark m-5">Create service</a>
 
