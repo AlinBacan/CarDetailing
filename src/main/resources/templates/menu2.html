@@ -37,7 +37,7 @@
                                         <form method="get"
                                               th:action="@{/shoppingCart/addService/{id}(id=${cosmeticService.id})}"
                                               th:object="${orderLine}">
-                                            <input th:field="*{quantity}" type="number" style="width:60px;"/>
+                                            <input th:field="*{quantity}" type="number" min="0" style="width:60px;"/>
                                             <div class="d-flex my-1 justify-content-center align-items-center">
                                                 <h5 th:text="${cosmeticService.price}" class="" style="margin-left: 30px; margin-bottom: 0;">50 ron</h5><span
                                                     class="my-1">&nbsp;ron</span>

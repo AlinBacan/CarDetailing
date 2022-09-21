@@ -25,7 +25,7 @@
 
     <div class="panel-default well" th:each="cosmeticService : ${cosmeticServicesInCart.entrySet()}">
         <div class="panel-heading">
-            <h1><a th:text="${cosmeticService.getKey().name}" th:href="@{'/shoppingCart' + ${cosmeticService.getKey().id}}">Title</a></h1>
+            <h1><a th:text="${cosmeticService.getKey().serviceName}" th:href="@{'/shoppingCart' + ${cosmeticService.getKey().id}}">Title</a></h1>
 
             <!-- vezi ce url trebuie pus; cred ca aici am cosmeticService in loc de order-->
             <!--<h3 th:text="${product.getKey().description}">Description</h3>-->
