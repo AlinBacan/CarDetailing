@@ -1,7 +1,6 @@
 package ro.sda.javaro35.finalProject.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +25,7 @@ public class ShoppingCartController {
     }
 
     private String showCart (Model model) {
-        model.addAttribute("orders", shopingCartService.getServicesInCart());
+        model.addAttribute("cosmeticServicesInCart", shopingCartService.getServicesInCart());
         model.addAttribute("total", shopingCartService.getTotal());
         return "shoppingCart";
     }
@@ -56,5 +55,6 @@ public class ShoppingCartController {
     public String checkout(Model model) {
         shopingCartService.checkout();
         return shoppingCart(model);
+        //to redirect to other page
     }
 }

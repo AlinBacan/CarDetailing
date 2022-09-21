@@ -53,10 +53,10 @@ public class CosmeticServiceController {
         return "redirect:/service";
     }
 
-    @GetMapping("/menu/")
+    @GetMapping("/menu")
     public String showMenuPage(Model model) {
-        // return a html page with products
-        // add list of products
+        // return a html page with services
+        // add list of services
         List<CosmeticServiceDto> services = cosmeticServiceService.getAllCosmeticServices();
         model.addAttribute("services", services);
         model.addAttribute("orderLine", new OrderLineDto());

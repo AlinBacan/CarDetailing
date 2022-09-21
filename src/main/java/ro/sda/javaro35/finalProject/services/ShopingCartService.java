@@ -7,7 +7,6 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.WebApplicationContext;
 import ro.sda.javaro35.finalProject.dto.CosmeticServiceDto;
-import ro.sda.javaro35.finalProject.entities.CosmeticService;
 import ro.sda.javaro35.finalProject.exceptions.IllegalQuantityException;
 import ro.sda.javaro35.finalProject.repository.CosmeticServiceRepository;
 

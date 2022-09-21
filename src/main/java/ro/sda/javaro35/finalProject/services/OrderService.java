@@ -18,7 +18,6 @@ import ro.sda.javaro35.finalProject.repository.CosmeticServiceRepository;
 import ro.sda.javaro35.finalProject.repository.OrderRepository;
 import ro.sda.javaro35.finalProject.repository.UserRepository;
 
-import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 

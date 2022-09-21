@@ -3,7 +3,6 @@ package ro.sda.javaro35.finalProject.mapper;
 import org.springframework.stereotype.Service;
 import ro.sda.javaro35.finalProject.dto.CosmeticServiceDto;
 import ro.sda.javaro35.finalProject.entities.CosmeticService;
-import ro.sda.javaro35.finalProject.mapper.Mapper;
 
 @Service
 public class CosmeticServiceMapper implements Mapper<CosmeticService, CosmeticServiceDto> {
