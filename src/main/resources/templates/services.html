@@ -52,7 +52,7 @@
         </tbody>
     </table>
 
-    <a th:href="@{/service/menu}" th:style="'color:green; font-size:40px;'">Place your order here! </a>
+    <a sec:authorize="hasRole('USER')" th:href="@{/service/menu}" th:style="'color:green; font-size:40px;'">Place your order here! </a>
 
 
 </div>
